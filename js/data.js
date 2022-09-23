@@ -16,6 +16,7 @@ function addNewJobListing(jsonObj, listJobs) {
     listingCompanyHeader.innerHTML = jobListing.company;
 
     const listFeaturesList = document.createElement('ul');
+    listFeaturesList.classList.add('list-features');
     if (jobListing.new) {
       const listFeatureNew = document.createElement('li');
       listFeatureNew.classList.add('feature-new');
@@ -38,6 +39,7 @@ function addNewJobListing(jsonObj, listJobs) {
     listingJobTitle.innerHTML = jobListing.position;
 
     const listDateRequirements = document.createElement('ul');
+    listDateRequirements.classList.add('list-date-and-requirements');
     const postedAtItem = document.createElement('li');
     postedAtItem.innerHTML = jobListing.postedAt;
     const contractItem = document.createElement('li');
@@ -48,6 +50,7 @@ function addNewJobListing(jsonObj, listJobs) {
     listDateRequirements.append(postedAtItem, contractItem, locationItem);
 
     const listFilters = document.createElement('ul');
+    listFilters.classList.add('list-filters');
     const roleItem = document.createElement('li');
     roleItem.classList.add('filter-role');
     roleItem.innerHTML = jobListing.role;

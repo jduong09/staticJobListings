@@ -29,7 +29,7 @@ main {
   border-radius: 5px;
 }
 
-#img-photosnap-logo {
+.img-logo {
   width: 55px;
   height: 55px;
   position: absolute;
