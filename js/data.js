@@ -1,5 +1,5 @@
 function addNewJobListing(jsonObj) {
-  const listJobs = document.querySelector('list-jobs');
+  const listJobs = document.querySelector('.list-jobs');
   for (let i = 0; i < jsonObj.length; i++) {
     const jobListing = jsonObj[i];
     const listingJobItem = document.createElement('li');
