@@ -7,6 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  http.open('GET', '../data.json', true);
+  http.open('GET', './data.json', true);
   http.send();
 });
