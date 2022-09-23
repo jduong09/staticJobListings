@@ -1,5 +1,4 @@
-function addNewJobListing(jsonObj) {
-  const listJobs = document.querySelector('.list-jobs');
+function addNewJobListing(jsonObj, listJobs) {
   for (let i = 0; i < jsonObj.length; i++) {
     const jobListing = jsonObj[i];
     const listingJobItem = document.createElement('li');
@@ -78,12 +77,13 @@ function addNewJobListing(jsonObj) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const listJobs = document.querySelector('.list-jobs');
   const http = new XMLHttpRequest();
   http.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const jsonObj = JSON.parse(this.responseText);
       
-      addNewJobListing(jsonObj);
+      addNewJobListing(jsonObj, listJobs);
     }
   }
 
