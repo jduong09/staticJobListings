@@ -8,6 +8,9 @@ function addNewJobListing(jsonObj, listJobs) {
     logoImg.classList.add('img-logo');
     logoImg.src = jobListing.logo;
 
+    const listInformationDiv = document.createElement('div');
+    listInformationDiv.classList.add('listing-information');
+
     const listingHeaderDiv = document.createElement('div');
     listingHeaderDiv.classList.add('listing-header');
 
@@ -48,6 +51,7 @@ function addNewJobListing(jsonObj, listJobs) {
     locationItem.innerHTML = jobListing.location;
 
     listDateRequirements.append(postedAtItem, contractItem, locationItem);
+    listInformationDiv.append(listingHeaderDiv, listingJobTitle, listDateRequirements);
 
     const listFilters = document.createElement('ul');
     listFilters.classList.add('list-filters');
@@ -74,7 +78,7 @@ function addNewJobListing(jsonObj, listJobs) {
       listFilters.append(toolItem);
     });
 
-    listingJobItem.append(logoImg, listingHeaderDiv, listingJobTitle, listDateRequirements, listFilters);
+    listingJobItem.append(logoImg, listInformationDiv, listFilters);
     listJobs.append(listingJobItem);
   }
 }
