@@ -3,6 +3,10 @@ body {
   font-weight: 500;
 }
 
+.hide {
+  display: none !important;
+}
+
 header {
   background-color: hsl(180, 29%, 50%);
 }
@@ -19,6 +23,33 @@ header {
 main {
   padding: 1.5rem 1.5rem 2rem 1.5rem;
   background-color: hsl(180, 52%, 96%);
+  position: relative;
+}
+
+#div-filtered-items {
+  width: calc(100% - 6rem);
+  padding: 1.5rem;
+  background-color: hsl(0, 0%, 100%);
+  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+  position: absolute;
+  top: -31.5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.list-filtered-items {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+}
+
+#btn-clear {
+  width: 20%;
+  background: none;
+  color: hsl(180, 8%, 52%);
+  font-weight: 700;
+  cursor: pointer;
 }
 
 .listing-job {
