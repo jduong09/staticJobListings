@@ -119,6 +119,12 @@ main {
   margin-bottom: 1rem;
 }
 
+@media (min-width: 390px) {
+  #bg-header-mobile {
+    width: 100%;
+  }
+}
+
 @media (min-width: 767px) {
   #bg-header-mobile {
     display: none;
@@ -178,5 +184,18 @@ main {
 
   .list-filters > li {
     margin-bottom: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .list-jobs {
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
+@media (min-width: 1400px) {
+  .list-jobs {
+    width: 85%;
   }
 }
