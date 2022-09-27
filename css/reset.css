@@ -3,7 +3,7 @@ html, body, div, span, h1, h2, h3, p, a, img, header, footer, nav, section, ul, 
   padding: 0;
   border: 0;
   font: inherit;
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 img {
