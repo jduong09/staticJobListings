@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const listJobs = document.getElementsByClassName('listing-job');
   const clearBtn = document.getElementById('btn-clear');
   let filteredJobs = [];
+  let filters = [];
 
   clearBtn.addEventListener('click', () => {
     filteredItemsList.innerHTML = '';
@@ -20,12 +21,14 @@ document.addEventListener('DOMContentLoaded', () => {
       listOfJobs.children[i].classList.remove('hide');
     }
     filteredJobs = [];
+    filters = [];
   });
   
   for (let i = 0; i < filterItems.length; i++) {
     const filterItem = filterItems[i];
     filterItem.addEventListener('click', (e) => {
       e.preventDefault();
+      filters.push(e.target.innerHTML);
 
       if (filteredItemDiv.classList.contains('hide')) {
         filteredItemDiv.classList.remove('hide');
@@ -59,26 +62,64 @@ document.addEventListener('DOMContentLoaded', () => {
 
       imgDelete.addEventListener('click', (e) => {
         e.preventDefault();
-        console.log(e.target.parentElement.parentElement.textContent);
+        filters = filters.filter(item => item !== e.target.parentElement.parentElement.textContent);
+        
+        for (let k = 0; k < listJobs.length; k++) {
+          const listJob = listJobs[k];
+          listJob.classList.add('hide');
+          const currentListFilters = listJob.children[2].children;
+  
+          const arrListFilters = [...currentListFilters].map(filterItem => {
+            return filterItem.textContent;
+          });
+          
+          let containsFilter = false;
+  
+          containsFilter = filters.every(filter => {
+            return arrListFilters.includes(filter);
+          });
+  
+          if (containsFilter) {
+            filteredJobs.push(listJob);
+          }
+        }
+        filteredJobs.forEach(filteredJob => {
+          filteredJob.classList.remove('hide');
+        });
+  
+        filteredJobs = [];
+        e.target.parentElement.parentElement.remove();
+
+        if (filteredItemsList.children.length === 0) {
+          filteredItemDiv.classList.add('hide');
+        }
       });
 
       // Need logic for actual filtering
       for (let k = 0; k < listJobs.length; k++) {
         const listJob = listJobs[k];
         listJob.classList.add('hide');
-        const currentListFilters = listJob.children[2];
-        for (let l = 0; l < currentListFilters.children.length; l++) {
-          const currentFilter = currentListFilters.children[l];
+        const currentListFilters = listJob.children[2].children;
 
-          if (currentFilter.innerHTML === e.target.innerHTML) {
-            filteredJobs.push(listJob);
-            break;
-          }
+        const arrListFilters = [...currentListFilters].map(filterItem => {
+          return filterItem.textContent;
+        });
+        
+        let containsFilter = false;
+
+        containsFilter = filters.every(filter => {
+          return arrListFilters.includes(filter);
+        });
+
+        if (containsFilter) {
+          filteredJobs.push(listJob);
         }
       }
       filteredJobs.forEach(filteredJob => {
         filteredJob.classList.remove('hide');
       });
+
+      filteredJobs = [];
     });
   }
 })
