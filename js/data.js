@@ -84,13 +84,13 @@ function addNewJobListing(jsonObj, listJobs) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const listJobs = document.querySelector('.list-jobs');
+  const mainListOfJobs = document.querySelector('.list-jobs');
   const http = new XMLHttpRequest();
   http.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
       const jsonObj = JSON.parse(this.responseText);
       
-      addNewJobListing(jsonObj, listJobs);
+      addNewJobListing(jsonObj, mainListOfJobs);
     }
   }
 
