@@ -86,11 +86,11 @@ function addNewJobListing(jsonObj, listJobs) {
 document.addEventListener('DOMContentLoaded', async () => {
   const mainListOfJobs = document.querySelector('.list-jobs');
   const http = new XMLHttpRequest();
-  http.onreadystatechange = function() {
+  http.onreadystatechange = async () => {
     if (this.readyState == 4 && this.status == 200) {
       const jsonObj = JSON.parse(this.responseText);
       
-      addNewJobListing(jsonObj, mainListOfJobs);
+      await addNewJobListing(jsonObj, mainListOfJobs);
     }
   }
 
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   await http.send();
 
 
-  const filterItems = document.querySelectorAll('.list-filters > li');
+  const filterItems = await document.querySelectorAll('.list-filters > li');
   console.log(filterItems);
   const filteredItemDiv = document.getElementById('div-filtered-items');
   const filteredItemsList = document.querySelector('.list-filtered-items');
