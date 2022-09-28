@@ -83,7 +83,7 @@ function addNewJobListing(jsonObj, listJobs) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
   const mainListOfJobs = document.querySelector('.list-jobs');
   const http = new XMLHttpRequest();
   http.onreadystatechange = function() {
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   http.open('GET', './data.json', true);
-  http.send();
+  await http.send();
 
 
   const filterItems = document.querySelectorAll('.list-filters > li');
