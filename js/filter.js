@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // When hovering, add active states.
   // When button is clicked, if there is no filter before the click, then we need a new box that will display abovve the list of jobs, and it will 
   // Create item that shows that is being filter, and then filter the list by that item.
-  const main = document.querySelector('main');
   const filterItems = document.querySelectorAll('.list-filters > li');
   const filteredItemDiv = document.getElementById('div-filtered-items');
   const filteredItemsList = document.querySelector('.list-filtered-items');
@@ -122,4 +121,4 @@ document.addEventListener('DOMContentLoaded', () => {
       filteredJobs = [];
     });
   }
-})
+});
