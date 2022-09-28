@@ -1,4 +1,4 @@
-import addFilterLogic from './filter.js';
+import { addFilterLogic } from './filter.js';
 
 function addNewJobListing(jsonObj, listJobs) {
   for (let i = 0; i < jsonObj.length; i++) {
