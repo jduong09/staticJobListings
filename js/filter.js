@@ -24,6 +24,9 @@ export function addFilterLogic() {
     const filterItem = filterItems[i];
     filterItem.addEventListener('click', (e) => {
       e.preventDefault();
+      if (filters.includes(e.target.innerHTML)) {
+        return false;
+      }
       filters.push(e.target.innerHTML);
 
       if (filteredItemDiv.classList.contains('hide')) {
