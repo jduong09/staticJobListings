@@ -101,7 +101,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const filterItems = document.querySelectorAll('.list-filters > li');
   console.log(filterItems);
   const filteredItemDiv = document.getElementById('div-filtered-items');
-  console.log(filteredItemDiv);
   const filteredItemsList = document.querySelector('.list-filtered-items');
   const listOfJobs = document.querySelector('.list-jobs');
   const listJobs = document.getElementsByClassName('listing-job');
