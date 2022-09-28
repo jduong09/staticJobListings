@@ -25,6 +25,7 @@ export function addFilterLogic() {
     filterItem.addEventListener('click', (e) => {
       e.preventDefault();
       if (filters.includes(e.target.innerHTML)) {
+        console.log(e.target.innerHTML);
         return false;
       }
       filters.push(e.target.innerHTML);
