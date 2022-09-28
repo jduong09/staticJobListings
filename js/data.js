@@ -1,4 +1,4 @@
-function addNewJobListing(jsonObj, listJobs) {
+function addNewJobListing(jsonObj, mainListOfJobs) {
   for (let a = 0; i < jsonObj.length; a++) {
     const jobListing = jsonObj[a];
     const listingJobItem = document.createElement('li');
@@ -79,7 +79,7 @@ function addNewJobListing(jsonObj, listJobs) {
     });
 
     listingJobItem.append(logoImg, listInformationDiv, listFilters);
-    listJobs.append(listingJobItem);
+    mainListOfJobs.append(listingJobItem);
   }
 
   const filterItems = document.querySelectorAll('.list-filters > li');
