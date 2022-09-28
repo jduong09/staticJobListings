@@ -1,6 +1,5 @@
 export function addFilterLogic() {
   const filterItems = document.querySelectorAll('.list-filters > li');
-  console.log(filterItems);
   const filteredItemDiv = document.getElementById('div-filtered-items');
   const filteredItemsList = document.querySelector('.list-filtered-items');
   const listOfJobs = document.querySelector('.list-jobs');
@@ -24,26 +23,14 @@ export function addFilterLogic() {
     const filterItem = filterItems[i];
     filterItem.addEventListener('click', (e) => {
       e.preventDefault();
+
       if (filters.includes(e.target.innerHTML)) {
-        console.log(e.target.innerHTML);
         return false;
       }
       filters.push(e.target.innerHTML);
 
       if (filteredItemDiv.classList.contains('hide')) {
         filteredItemDiv.classList.remove('hide');
-      }
-
-      // Need to check if this filtered click has already been added to the filtered list.
-      if (filteredItemsList.children.length > 1) {
-        for (let j = 0; j < filteredItemsList.children.length; j++) {
-          const currentFilteredItem = filteredItemsList.children[j];
-          if (currentFilteredItem.textContent === e.target.innerHTML) {
-            // If filtered list contains clicked filter, do nothing and end function.
-            console.log('Already clicked this filter!');
-            return false;
-          }
-        }
       }
 
       const newFilteredItem = document.createElement('li');
