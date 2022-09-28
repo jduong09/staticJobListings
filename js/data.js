@@ -81,24 +81,8 @@ function addNewJobListing(jsonObj, listJobs) {
     listingJobItem.append(logoImg, listInformationDiv, listFilters);
     listJobs.append(listingJobItem);
   }
-}
 
-document.addEventListener('DOMContentLoaded', async () => {
-  const mainListOfJobs = document.querySelector('.list-jobs');
-  const http = new XMLHttpRequest();
-  http.onreadystatechange = async () => {
-    if (this.readyState == 4 && this.status == 200) {
-      const jsonObj = JSON.parse(this.responseText);
-      
-      await addNewJobListing(jsonObj, mainListOfJobs);
-    }
-  }
-
-  http.open('GET', './data.json', true);
-  await http.send();
-
-
-  const filterItems = await document.querySelectorAll('.list-filters > li');
+  const filterItems = document.querySelectorAll('.list-filters > li');
   console.log(filterItems);
   const filteredItemDiv = document.getElementById('div-filtered-items');
   const filteredItemsList = document.querySelector('.list-filtered-items');
@@ -217,4 +201,19 @@ document.addEventListener('DOMContentLoaded', async () => {
       filteredJobs = [];
     });
   }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const mainListOfJobs = document.querySelector('.list-jobs');
+  const http = new XMLHttpRequest();
+  http.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      const jsonObj = JSON.parse(this.responseText);
+      
+      addNewJobListing(jsonObj, mainListOfJobs);
+    }
+  }
+
+  http.open('GET', './data.json', true);
+  http.send();
 });
