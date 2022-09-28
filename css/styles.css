@@ -43,7 +43,6 @@ main {
 }
 
 #btn-clear {
-  width: 20%;
   background: none;
   color: hsl(180, 8%, 52%);
   font-weight: 700;
