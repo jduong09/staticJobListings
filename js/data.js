@@ -1,5 +1,5 @@
 function addNewJobListing(jsonObj, mainListOfJobs) {
-  for (let a = 0; i < jsonObj.length; a++) {
+  for (let a = 0; a < jsonObj.length; a++) {
     const jobListing = jsonObj[a];
     const listingJobItem = document.createElement('li');
     listingJobItem.classList.add('listing-job');
