@@ -1,4 +1,4 @@
-export const addFilterLogic = () => {
+export function addFilterLogic() {
   const filterItems = document.querySelectorAll('.list-filters > li');
   console.log(filterItems);
   const filteredItemDiv = document.getElementById('div-filtered-items');
